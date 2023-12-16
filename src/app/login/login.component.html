@@ -1,0 +1,33 @@
+<div style="width: 100%; height: 85vh; background-size: contain; background-image: url(https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?cs=srgb&dl=pexels-daniel-absi-952670.jpg&fm=jpg);" class="d-flex justify-content-center align-items-center">
+    <div style="width: 800px;" class=" shadow p-5 row rounded bg-light align-items-center">
+        <div class="col-lg-8">
+            <img  src="https://img.freepik.com/premium-vector/log-people-isometric-vector-illustration-illustration-with-sign-people-mobile-app-design_123447-4749.jpg?w=360" alt="no image" class="img-fluid">
+        </div>
+        <div class="col-lg-4">
+            <h1 class="fw-bolder mb-5">LoginForm</h1>
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+               
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" [(ngModel)]="email" email required #useremailinput ="ngModel" >
+                    <label for="floatingInput">Email Address</label>
+                </div>
+                <!-- Invalid email -->
+                <div *ngIf="useremailinput.invalid && useremailinput.touched" class="mb-3 text-danger fw-bolder">
+                    *Invalid Email
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="password" required pattern="[a-zA-Z0-9]*" minlength="3" #userpassword="ngModel" >
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <!-- Invalid Password -->
+                <div *ngIf="userpassword.invalid &&userpassword.touched" class="mb-3 text-danger fw-bolder">
+                    *Invalid Password
+                </div>
+                <div class="d-grid">
+                    <button [disabled]="loginForm.invalid" type="submit" style="background-color: rgb(180, 104, 180);" class="btn">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="d-flex">
+    <div *ngIf="showSidebar" style="height: 89vh; width: 150px;" class="sidebar bg-dark text-light p-3 d-flex flex-column">
+        <a style="text-decoration: none; color: white; margin-top: 10px; font-weight: bold;" routerLink="/dashboard">Home</a>
+        <a style="text-decoration: none; color: white; margin-top: 10px; font-weight: bold;" routerLink="/users">Users</a>
+
+        <button style="margin-top: 500px;" class="btn btn-light " (click)="logout()">LogOut</button>
+
+    </div>
+    <div class="dashboard p-3 w-100">
+       <div class="row">
+        <div class="col-lg-8">
+            <div style="height: 180px; background-image: url('https://cdn.cbeditz.com/cbeditz/large/yellow-orange-flex-banner-background-download-fephq.jpg'); cursor: pointer;" class="admin-banner rounded d-flex align-items-center shadow">
+                <h1 style="height: 40px;" class="text-light"><i (click)="menuClick()" style="margin-left: 50px;" class="fa-solid fa-bars"></i> Welcome {{admin_name}}</h1>
+
+            </div>
+            <div class="row m-3">
+                <div class="col-lg-5 border rounded shadow">
+                   <!-- <h1> Calender</h1> -->
+                   <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar [(selected)]="selected"></mat-calendar>
+                  </mat-card>
+                 
+                  
+                </div>
+
+                <div class="col-lg-1 "></div>
+                <div class="col-lg-6 border rounded shadow">
+                   <!-- selector chart -->
+                   <app-chart></app-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div style="height: 400px;" class="edit-admin border rounded shadow p-2">
+                <!-- edit admin component -->
+               <app-update-admin (onAdminChange)="getUpdatedAdmin($event)"></app-update-admin>
+            </div>
+            <div style="height: 150px; background-image: url('https://cdn.cbeditz.com/cbeditz/large/yellow-orange-flex-banner-background-download-fephq.jpg');" class="mt-2 border rounded shadow p-2 bg-dark text-light d-flex align-items-center justify-content-center">
+                <h2 class="fw-bolder"><i class="fa-solid fa-users me-2"></i>Employee :{{employeeCount}}</h2>
+            </div>
+        </div>
+       </div>
+    </div>
+</div>
