@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class AdminApiService {
 
   SERVER_URL = "https://employee-portal-xci5.onrender.com"
+  
   constructor(private http:HttpClient) { }
 
   authenticate(){
